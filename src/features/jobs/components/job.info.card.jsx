@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { View, Text } from "react-native";
 import { FontAwesome5, FontAwesome } from "@expo/vector-icons";
 import { StyleSheet } from "react-native";
