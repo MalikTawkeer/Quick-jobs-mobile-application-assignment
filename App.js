@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
 
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+import { Navigation } from "./src/infrastructure";
+import { BookmarkProvider } from "./src/contexts/bookmarks.context";
+
+const queryClient = new QueryClient();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <BookmarkProvider>
+        <Navigation />
+      </BookmarkProvider>
+
+      <StatusBar />
+    </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
